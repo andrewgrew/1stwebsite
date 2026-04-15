@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://andrewgrew.github.io/1stwebsite/

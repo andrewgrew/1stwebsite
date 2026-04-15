@@ -1,7 +1,8 @@
 :root {
-    --bg-color: #0b0e14;
-    --text-color: #e0e0e0;
+    --bg-color: #F4F7FA;
+    --text-color: #1F2A33;
     --accent: #f2a900;
+    --lines: #AEBBC7;
 }
 body {
     font-family: 'Exo 2', sans-serif;
@@ -14,7 +15,7 @@ header {
     top: 0;
     width: 100%;
     height: 70px;
-    background: rgba(47, 76, 120, 1);
+    background: rgba(220,230,239, 1);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--accent);
     display: flex;
@@ -23,20 +24,33 @@ header {
     z-index: 1000;
     box-sizing: border-box;
 }
-header h1 {
-    font-family: 'Jura', sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    letter-spacing: 3px;
-    color: var(--accent);
-    margin: 0;
-    text-transform: uppercase;
-}
+
 header nav {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+}
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 15px;
+}
+
+.header-logo {
+    height: 45px;
+    width: auto;
+    filter: drop-shadow(0 0 5px var(--accent));
+}
+header h1 {
+    font-family: 'Jura', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem; 
+    letter-spacing: 3px;
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1; 
+    text-transform: uppercase;
 }
 header ul {
     display: flex;
@@ -44,7 +58,9 @@ header ul {
     gap: 30px;
     margin: 0;
     padding: 0;
+    margin-left: auto;
 }
+
 header nav a {
     text-decoration: none;
     color: var(--text-color);
@@ -53,9 +69,50 @@ header nav a {
     text-transform: uppercase;
     transition: 0.3s;
 }
+
 header nav a:hover {
     color: var(--accent);
     text-shadow: 0 0 8px var(--accent);
+}
+.search-box {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--accent);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-left: 30px;
+}
+.search-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    font-family: 'Exo 2', sans-serif;
+    padding: 5px 15px;
+    width: 100px;
+    font-size: 0.75rem;
+    transition: width 0.3s ease;
+}
+.search-box input:focus {
+    width: 160px;
+}
+.search-box button {
+    background: var(--accent);
+    border: none;
+    color: var(--bg-color);
+    font-family: 'Jura', sans-serif;
+    font-weight: 700;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 18px;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+.search-box button:hover {
+    background: #ffffff;
+    box-shadow: 0 0 10px #ffffff;
 }
 footer {
     position: fixed;
@@ -73,6 +130,18 @@ footer {
     z-index: 1000;
     box-sizing: border-box;
 }
+footer a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+footer a:hover {
+    color: var(--accent);
+    text-shadow: 0 0 8px var(--accent);
+}
 footer p {
     font-size: 0.75rem;
     color: var(--text-color);
@@ -80,16 +149,6 @@ footer p {
     letter-spacing: 1px;
     margin: 0;
     opacity: 0.8;
-}
-footer .status-dot {
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    background-color: var(--accent);
-    border-radius: 50%;
-    margin-right: 8px;
-    box-shadow: 0 0 5px var(--accent);
-    animation: blink 2s infinite;
 }
 @keyframes blink {
     0% { opacity: 1; }
