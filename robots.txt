@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
-Sitemap: https://andrewgrew.github.io/1stwebsite/
+Disallow: /image/
+Disallow: /css/
+Sitemap: https://andrewgrew.github.io/1stwebsite/sitemap.xml

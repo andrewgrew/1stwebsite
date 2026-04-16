@@ -1,0 +1,26 @@
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css text/javascript
+application/javascript
+</IfModule>
+# Кешування файлів (щоб браузер не завантажував їх кожен раз)
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType text/css "access plus 1 month"
+ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+# Налаштування кодування
+AddDefaultCharset UTF-8
+# Власна сторінка 404 помилки
+ErrorDocument 404 /404.html
+# Перенаправлення з www на без www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.example\.com$ [NC]
+RewriteRule ^(.*)$ http://example.com/$1 [R=301,L]
+# Приховати .html розширення (красиві URL)
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+Options -Indexes
